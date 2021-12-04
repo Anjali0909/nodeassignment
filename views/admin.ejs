@@ -46,36 +46,7 @@
 </div>
 </div>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<!-- <script>
-    
-    function submitForm(event){
-        event.preventDefault()
-        var email = document.getElementById('email').value
-        var password = document.getElementById('password').value
-        sendDetail(email, password)
-    }
 
-    function sendDetail(email, password){
-        axios.post('/admin', {email, password})
-        .then((response)=>{
-            if( response.status == 200 && response.data.emailError == "incorrectEmail"){
-                alert('Invalid admin')
-            }
-            if( response.status == 200 && response.data.passwordError == "incorrectPassword"){
-              alert("user unauthorized");
-            }
-            if( response.status == 200){
-                location.replace('/adminhtml');
-            }
-            if( response.status == 500){
-                alert( 'internal error' )
-            }
-        })
-        .catch((error)=>{
-            console.log(error)
-        })
-    }
-</script> -->
 
 </body>
 

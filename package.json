@@ -1,10 +1,10 @@
 {
-  "name": "shivanshu",
+  "name": "anjali",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,5 +19,15 @@
     "mongoose": "^5.7.1",
     "node": "^12.11.0",
     "sweetalert2": "^8.17.6"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anjali0909/NodejsMongodb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Anjali0909/NodejsMongodb/issues"
+  },
+  "homepage": "https://github.com/Anjali0909/NodejsMongodb#readme",
+  "description": ""
 }

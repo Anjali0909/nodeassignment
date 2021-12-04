@@ -74,7 +74,7 @@ app.use(bodyParser.json());
                     var email=req.body.email;
                     var password=req.body.password;
                      console.log(email +"  "+ password)
-                        if(req.body.email==="shivanshu@gmail.com"){
+                        if(req.body.email==="anjalibadlani1999@gmail.com"){
                                newbody.findOne({email:req.body.email})
                                 .then((student)=>{
                                if( student ){
