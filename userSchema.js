@@ -3,7 +3,7 @@ var mongoose=require('mongoose')
 var Schema = mongoose.Schema
 const { check, validationResult } = require('express-validator');
 
-mongoose.connect("mongodb+srv://shivanshu:PASSWORD@cluster0-owf5m.mongodb.net/latest?retryWrites=true&w=majority",{ useUnifiedTopology: true, useNewUrlParser: true  })
+mongoose.connect("mongodb+srv://anjali:anjali@cluster0.dmpfm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{ useUnifiedTopology: true, useNewUrlParser: true  })
 const Student = new Schema({
     name:String,
     email:{
@@ -12,6 +12,7 @@ const Student = new Schema({
         trim: true,
     },
 	password: String,
+    active: Boolean
 })
 
 module.exports = Student;

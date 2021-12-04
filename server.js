@@ -9,12 +9,12 @@ var bodyParser=require('body-parser');
 const { check, validationResult } = require('express-validator');
 var Schema=require('./userSchema');
 var newbody = mongoose.model("latestcollection",Schema);
-const TWO_HOURS=1000* 60 * 60 * 2
+const THREE_HOURS=1000* 60 * 60 * 3
 const{
     NODE_ENV='development',
-    SESS_NAME='shivanshusession',
+    SESS_NAME='anjalisession',
     SESS_SECRET='secretcookie',
-    SESS_LIFETIME=TWO_HOURS
+    SESS_LIFETIME=THREE_HOURS
 
 }=process.env
 
@@ -34,14 +34,7 @@ app.use(bodyParser.json());
                 next();
             }
         }
-            // const redirectAdmin=(req,res,next)=>{
-            //     if(req.session.userId){
-            //         console.log("admin middleware")
-            //         res.redirect('admin');
-            //     }else{
-            //         next();
-            //     }
-            // }
+            
 
     const redirectHome=(req,res,next)=>{
             if(req.session.userId){
@@ -105,7 +98,6 @@ app.use(bodyParser.json());
                                     }
                                }
                                else{
-                                    // res.send({emailError: "incorrectEmail"})
                                     var error=[];
                                     error.push("Email does does not exist");
                                     console.log('Admin email doesnot match');
@@ -152,12 +144,7 @@ console.log("in post login ");
                        console.log('User not found with this email')
                    }
                 })
-                //     if(user){
-                //         console.log("this is a user");
-                //         req.session.userId=req.body.email;
-                //    return res.redirect('/home');
-                //     }
-
+                
             }else{
                 res.redirect('/login');
             }
@@ -187,43 +174,13 @@ console.log("in post login ");
                     }
                 })            
                 
-                // newbody.findOne({email:req.body.email},function(err,alldetails){
-                //     if(err)
-                //     {
-                //         console.log(err);
-                //     }
-                //     if(alldetails){     
-                     
-                //         console.log('User already exist');
-                    
-                //     }
-                    //     else{
-                    //     var sData = new newbody()
-                    //     sData.name = name
-                    //     sData.email= email
-                    //     sData.password = password
-                    //     sData.save()
-                    //     req.session.userId=req.body.email;
-                    //     console.log("DATA SAVED IN DATABASE");              
-                    //     return res.redirect('/home');                    
-                    // }
-            // })
+               
         })
         app.get('/home' ,redirectLogin,(req,res)=>{
             newbody.findOne({email:req.session.userId})
             .then((student)=>{
                 res.render('home.ejs',{student:student});
           
-            //         res.send(`
-            //     <h1>HOME</h1>
-            //     <ul>
-            //     <li> NAME: ${student.name}</li>
-            //     <li> EMAIL ${student.email}</li>
-            //     </ul>
-            // <form action='/logout' method="post">
-            // <button>LOGOUT</button>
-            // </form>
-            // `)
             })
             
         })
